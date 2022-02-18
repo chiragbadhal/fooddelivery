@@ -1,40 +1,42 @@
 package com.learning.dto;
 
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-@Data
+import lombok.NoArgsConstructor;
 @AllArgsConstructor
+@Data
+@NoArgsConstructor
 @Entity
-@Table(name = "food")
-
 public class Food {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int foodId;
-	
-	@NotBlank
+	 
+
+	@Size(max=20)
+	@NotNull
 	private String foodName;
 	
 	@NotNull
-	@Min(value = 0)
-	private double foodCost;
+	private String foodCost;
 	
-	private EFOODTYPE foodtype;
 	
-	@NotBlank
+    private FoodType foodType;
+	
+	@Size(max=50)
 	private String description;
 	
-	@NotBlank
+	@NotNull
 	private String foodPic;
+	
+	@Id  
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long foodId;
+	
+
 }

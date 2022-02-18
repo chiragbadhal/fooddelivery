@@ -1,15 +1,14 @@
 package com.learning.service;
 
+import org.springframework.stereotype.Service;
+
 import com.learning.dto.Login;
-import com.learning.exception.InvalidEmailException;
 
-
+@Service
 public interface LoginService {
-	public String addCredentials(Login login);
-	public String deleteCredentials(String userName);
-	public String changePassword(String userName, String password);
-	public String authenticateUser(Login login) throws InvalidEmailException;
-
 	
+	public String authenticateUser(Login login);
+	public String addCredentials(Login login);
+	public String deleteCredentials(String email);
 
 }
